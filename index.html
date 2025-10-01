@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Masters</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Cairo", sans-serif;
+        background: #f9f9f9;
+        color: #333;
+      }
+      header {
+        background: #fff;
+        color: #1e3c72;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 26px;
+      }
+      nav a {
+        color: #1e3c72;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url("po.jpg");
+
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+        background-size: cover; /* تخلي الصورة تملأ الفريم */
+        background-position: center; /* تخلي الصورة تتمركز */
+      }
+
+      .hero h2 {
+        font-size: 38px;
+        margin: 10px 0;
+      }
+      .btn {
+        background: #1e3c72;
+        color: #fff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+      .btn:hover {
+        background: #305fa8;
+      }
+
+      .services {
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .services h2 {
+        margin-bottom: 30px;
+        color: #1e3c72;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 700px;
+        width: 90%;
+        text-align: center;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .gallery {
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .gallery h2 {
+        color: #1e3c72;
+        margin-bottom: 20px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+      }
+      .gallery-grid img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonials {
+        padding: 50px 20px;
+        background: #f0f0f0;
+        text-align: center;
+      }
+      .testimonial {
+        display: none;
+      }
+      .testimonial.active {
+        display: block;
+      }
+      .stars {
+        color: gold;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      .testimonial h4 {
+        margin: 5px 0;
+        color: #1e3c72;
+      }
+
+      .pricing {
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .pricing h2 {
+        color: #1e3c72;
+      }
+      .pricing-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .price-card {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 220px;
+      }
+
+      footer {
+        background: #606671;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      iframe {
+        max-width: 100%;
+        border-radius: 12px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CV Masters</h1>
+      <nav>
+        <a href="#services">الخدمات</a>
+        <a href="#video">فيديو</a>
+        <a href="#testimonials">آراء العملاء</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>خلي CV يوصلك للإنترفيو 💼</h2>
+      <a
+        href="https://wa.me/2010678648?text=السلام عليكم، مهتم بخدمات CV Masters"
+        target="_blank"
+        class="btn"
+        >اطلب خدمتك الآن</a
+      >
+    </section>
+
+    <section id="services" class="services">
+      <h2>خدماتنا</h2>
+      <div class="cards">
+        <div
+          class="card"
+          onclick="openModal('ATS CV احترافي متوافق مع الأنظمة')"
+        >
+          <img
+            src="ATS-Friendly-Resume-Template.jpg"
+            alt="ATS CV"
+            style="width: 100%; border-radius: 8px"
+          />
+          <h3>ATS CV</h3>
+        </div>
+        <div class="card" onclick="openModal('CV بالعربي بجودة عالية')">
+          <img
+            src="سيرة ذاتية احترافية أبيض وأسود سادة  .jpg"
+            alt="CV بالعربي"
+            style="width: 100%; border-radius: 8px"
+          />
+          <h3>CV بالعربي</h3>
+        </div>
+        <div class="card" onclick="openModal('بورتفوليو صفحة/موقع شخصي')">
+          <img
+            src="original-5da23a472e1634a00c0801c9645f1cb7.webp"
+            alt="بورتفوليو"
+            style="width: 100%; border-radius: 8px"
+          />
+          <img
+            src="e53b70c9d4cc797ffa5c2016712563ce_thumb.png"
+            alt="بورتفوليو"
+            style="width: 100%; border-radius: 8px"
+          />
+          <h3>بورتفوليو</h3>
+        </div>
+        <div class="card" onclick="openModal('كافر ليتر مخصص لكل وظيفة')">
+          <img
+            src="marketing-intern-example-cover-letter.svg"
+            alt="كافر ليتر"
+            style="width: 100%; border-radius: 8px"
+          />
+          <h3>كافر ليتر</h3>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modal-content">
+        <p>تفاصيل الخدمة هنا</p>
+        <button onclick="closeModal()">إغلاق</button>
+      </div>
+    </div>
+    <section id="video" class="services">
+      <h2>أهمية الـ ATS</h2>
+      <p>شاهد الفيديو المبسط لتعرف ليه لازم CV يكون متوافق مع أنظمة التوظيف</p>
+
+      <video
+        width="100%"
+        height="315"
+        controls
+        playsinline
+        preload="metadata"
+        poster="poster.jpg"
+      >
+        <source src="ats-video.mp4" type="video/mp4" />
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <h2>آراء العملاء</h2>
+      <div class="testimonial active">
+        <h4>محمد أحمد – القاهرة</h4>
+        <p>"خدمة ممتازة وساعدوني أعدل CV بشكل احترافي"</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <h4>منة الله محمود – الجيزة</h4>
+        <p>"سريع في التسليم وCV متوافق مع الـ ATS"</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <h4>أحمد علي – الإسكندرية</h4>
+        <p>"أنصح بيهم جدًا، وفروا عليا وقت ومجهود"</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <h4>سارة خالد – المنصورة</h4>
+        <p>"CV منظم ومليان Keywords خلاني أوصل للإنترفيو"</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <h2>أسعارنا</h2>
+      <div class="pricing-cards">
+        <div class="price-card">
+          <h3>CV ATS</h3>
+          <p>75 جنيه</p>
+        </div>
+        <div class="price-card">
+          <h3>CV عربي</h3>
+          <p>60 جنيه</p>
+        </div>
+        <div class="price-card">
+          <h3>بورتفوليو</h3>
+          <p>250 جنيه</p>
+        </div>
+        <div class="price-card">
+          <h3>كافر ليتر</h3>
+          <p>50 جنيه</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <p>
+        📩 تواصل معنا:
+        <a href="mailto:cvmasters@gmail.com">cvmasters@gmail.com</a> | 📱
+        <a
+          href="https://wa.me/2010678648?text=السلام عليكم، مهتم بخدمات CV Masters"
+          target="_blank"
+          >واتساب
+        </a>
+      </p>
+      <p>© 2025 CV Masters</p>
+    </footer>
+
+    <script>
+      function openModal(service) {
+        let content = "";
+        if (service === "ATS CV احترافي متوافق مع الأنظمة") {
+          content = `
+          <h3>ATS CV احترافي متوافق مع الأنظمة</h3>
+          <p>سيرة ذاتية مُصممة لتكون متوافقة مع أنظمة التوظيف (ATS) وتضمن مرور CVك بدون مشاكل.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;">
+            <img src="ATS-Friendly-Resume-Template.jpg" style="width:100%;border-radius:8px;">
+            <img src="ats-sample2.jpg" style="width:100%;border-radius:8px;">
+          </div>
+          <button onclick="closeModal()">إغلاق</button>
+        `;
+        } else if (service === "CV بالعربي بجودة عالية") {
+          content = `
+          <h3>CV بالعربي بجودة عالية</h3>
+          <p>سيرة ذاتية باللغة العربية بشكل منظم واحترافي تناسب سوق العمل المحلي.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;">
+            <img src="arabic-cv1.jpg" style="width:100%;border-radius:8px;">
+            <img src="arabic-cv2.jpg" style="width:100%;border-radius:8px;">
+          </div>
+          <button onclick="closeModal()">إغلاق</button>
+        `;
+        } else if (service === "بورتفوليو صفحة/موقع شخصي") {
+          content = `
+          <h3>بورتفوليو صفحة/موقع شخصي</h3>
+          <p>بورتفوليو شخصي احترافي يعرض أعمالك ومهاراتك على شكل صفحة أو موقع متكامل.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;">
+            <img src="portfolio1.png" style="width:100%;border-radius:8px;">
+            <img src="portfolio2.png" style="width:100%;border-radius:8px;">
+          </div>
+          <button onclick="closeModal()">إغلاق</button>
+        `;
+        } else if (service === "كافر ليتر مخصص لكل وظيفة") {
+          content = `
+          <h3>كافر ليتر مخصص لكل وظيفة</h3>
+          <p>خطاب تعريفي مخصص يعزز فرصك ويبرز اهتمامك بالوظيفة بشكل احترافي.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;">
+            <img src="cover1.jpg" style="width:100%;border-radius:8px;">
+            <img src="cover2.jpg" style="width:100%;border-radius:8px;">
+          </div>
+          <button onclick="closeModal()">إغلاق</button>
+        `;
+        }
+
+        document.getElementById("modal-content").innerHTML = content;
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      // Testimonials Slider
+      let current = 0;
+      const testimonials = document.querySelectorAll(".testimonial");
+      setInterval(() => {
+        testimonials[current].classList.remove("active");
+        current = (current + 1) % testimonials.length;
+        testimonials[current].classList.add("active");
+      }, 3000);
+    </script>
+  </body>
+</html>
